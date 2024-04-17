@@ -1,6 +1,6 @@
 import Person from "./people";
 
 export default interface Household {
-    blockNum: string;
+    blockNum: number;
     inhabitants: Person[];
 }

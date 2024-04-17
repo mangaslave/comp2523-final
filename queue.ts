@@ -1,12 +1,14 @@
-export default class PriorityQueue<T> {
-    private elements: {item: T, priority: number}[] = [];
+import Clinic from "./interfaces/clinic";
+import Person from "./interfaces/people";
 
-    equeue(item: T, priority: number): void {
-        this.elements.push({item, priority});
-        this.elements.sort((a, b) => a.priority - b.priority);
+export default class PriorityQueue<Person> {
+    private elements: {item: Person, clinic: Clinic}[] = [];
+
+    equeue(item: Person, clinic: Clinic): void {
+        this.elements.push({item, clinic});
     }
 
-    dequeue(): T | undefined {
+    dequeue(): Person | undefined {
         return this.elements.shift()?.item;
     }
 
@@ -18,7 +20,11 @@ export default class PriorityQueue<T> {
         return this.elements.length
     }
 
-    getCurrentWaitTime(): string {
-        return `current wait time is ${this.size() * 10} minutes`
+    getCurrentWaitTime(line: number): number {
+        return line * 15
+    }
+
+    getElements() {
+        return this.elements;
     }
 }

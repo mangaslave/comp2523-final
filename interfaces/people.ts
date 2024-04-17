@@ -1,6 +1,6 @@
 export default interface Person {
     phn: string;
     fullName: string;
-    isVacinated: string;
-    age: string;
+    isVaccinated: boolean;
+    age: number;
 }
